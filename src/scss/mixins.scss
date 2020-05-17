@@ -1,0 +1,95 @@
+/* WIDTH, HEIGHT, MARGIN, FONT AND PADDING SIZE */
+$size: 0.1;
+$minsize: 0.01;
+
+/* BACKGROUND, BORDER AND TEXT COLOR */
+$gray-100: #f7fafc;
+$gray-200: #edf2f7;
+$gray-300: #e2e8f0;
+$gray-400: #cbd5e0;
+$gray-500: #a0aec0;
+$gray-600: #718096;
+$gray-700: #4a5568;
+$gray-800: #2d3748;
+$gray-900: #1a202c;
+$red-100: #fff5f5;
+$red-200: #fed7d7;
+$red-300: #feb2b2;
+$red-400: #fc8181;
+$red-500: #f56565;
+$red-600: #e53e3e;
+$red-700: #c53030;
+$red-800: #9b2c2c;
+$red-900: #742a2a;
+$orange-100: #fffaf0;
+$orange-200: #feebc8;
+$orange-300: #fbd38d;
+$orange-400: #f6ad55;
+$orange-500: #ed8936;
+$orange-600: #dd6b20;
+$orange-700: #c05621;
+$orange-800: #9c4221;
+$orange-900: #7b341e;
+$green-100: #f0fff4;
+$green-200: #c6f6d5;
+$green-300: #9ae6b4;
+$green-400: #68d391;
+$green-500: #48bb78;
+$green-600: #38a169;
+$green-700: #2f855a;
+$green-800: #276749;
+$green-900: #22543d;
+
+/* FLEX CONTAINER */
+@mixin flex ($hpos, $vpos, $type) {
+  display: flex;
+  @if $hpos == left {
+    justify-content: flex-start;
+  } @else if $hpos == right {
+    justify-content: flex-end;
+  } @else {
+    justify-content: center;
+  }
+  @if $vpos == top {
+    align-items: flex-start;
+  } @else if $vpos == bottom {
+    align-items: flex-end;
+  } @else {
+    align-items: center;
+  }
+  flex-direction: $type;
+}
+
+/* FULL CONTAINER */
+@mixin full ($w, $h, $position) {
+  @if $w != 0 {
+    width: 100%;
+  }
+  @if $h != 0 {
+    height: 100%;
+  }
+  @if $position == fixed OR $position == absolute {
+    left: 0;
+    top: 0;
+  }
+  position: $position;
+}
+
+/* BUTTON COLOR */
+@mixin button($color) {
+  transition: 0.1s;
+  cursor: pointer;
+  font-size: $size * 9vw;
+  @if $color == orange {
+    color: #FFF;
+    background-color: $orange-400;
+    &:hover {
+      background-color: $orange-300;
+    }
+    &.block {
+      background-color: $gray-300;
+      color: $gray-500;
+      cursor: default;
+    }
+  }
+}
