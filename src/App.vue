@@ -71,6 +71,7 @@ body {
   }
   .task-gost{
     position: fixed;
+    cursor: move;
     .open{
       display: none;
     }

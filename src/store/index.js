@@ -16,7 +16,7 @@ export default new Vuex.Store({
     getFilterTask: state => data => {
       let newArray = state.taskCollection;
       if (data.status !== null)  newArray = newArray.filter(item => item.status === data.status);
-      if (data.search.length > 0) newArray = newArray.filter(item => item.name.match(data.search) || item.text.match(data.search));
+      if (data.search.length > 0) newArray = newArray.filter(item => item.name.toLowerCase().match(data.search.toLowerCase()) || item.text.toLowerCase().match(data.search.toLowerCase()));
       return newArray;
     },
     // GET GROUP ITEMS
